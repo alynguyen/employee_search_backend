@@ -31,10 +31,10 @@ router.post('/search', async(req, res) => {
                 partial
             );
         }
+        return res.status(200).send(results);
     } catch(err) {
         return res.status(429).send(results)
     }
-    return res.status(200).send(results);
 })
 
 module.exports = router;
