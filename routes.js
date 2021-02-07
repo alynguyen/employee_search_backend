@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // Imports
-const peoples = require('./mockData');
 const db = require('./mockDB.json');
 const { exactSearch, partialSearch } = require('./utils');
 
@@ -16,6 +15,9 @@ router.post('/search', async(req, res) => {
             message: 'searchText required in payload'
         })
     }
+    // if (searchText === '') {
+    //     return res.status(200).send(db.objects);
+    // }
     const names = searchText.toLowerCase().split(' ');
     try {
         if (partial) {
